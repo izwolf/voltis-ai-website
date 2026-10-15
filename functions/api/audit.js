@@ -49,9 +49,9 @@ export async function onRequestPost(context) {
     });
 
     if (!notionRes.ok) {
-      const err = await notionRes.text();
-      console.error('Notion API error:', err);
-      return new Response(JSON.stringify({ error: 'Failed to save lead' }), {
+      const errText = await notionRes.text();
+      console.error('Notion API error:', errText);
+      return new Response(JSON.stringify({ error: 'Failed to save lead', detail: errText, status: notionRes.status }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
