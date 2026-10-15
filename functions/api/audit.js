@@ -23,6 +23,18 @@ export async function onRequestPost(context) {
 
     const leadType = type === 'waitlist' ? `Waitlist: ${service || 'Unknown'}` : 'Free Audit';
 
+    const properties: Record<string, any> = {
+      'Name': { title: [{ text: { content: name } }] },
+      'Business': { rich_text: [{ text: { content: business } }] },
+      'Email': { email: email },
+      'Challenge': { select: { name: challenge || 'Not sure where to start' } },
+      'Lead Type': { select: { name: leadType } },
+      'Status': { select: { name: 'New' } },
+      'Submitted': { date: { start: new Date().toISOString() } },
+    };
+    if (phone) properties['Phone'] = { phone_number: phone };
+    if (website) properties['Website'] = { url: website.startsWith('http') ? website : `https://${website}` };
+
     const notionRes = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
       headers: {
@@ -32,17 +44,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         parent: { database_id: DATABASE_ID },
-        properties: {
-          'Name': { title: [{ text: { content: name } }] },
-          'Business': { rich_text: [{ text: { content: business } }] },
-          'Email': { email: email },
-          'Phone': phone ? { phone_number: phone } : { phone_number: null },
-          'Website': website ? { url: website.startsWith('http') ? website : `https://${website}` } : { url: null },
-          'Challenge': { select: { name: challenge || 'Not sure where to start' } },
-          'Lead Type': { select: { name: leadType } },
-          'Status': { select: { name: 'New' } },
-          'Submitted': { date: { start: new Date().toISOString() } },
-        },
+        properties,
       }),
     });
 
