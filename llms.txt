@@ -1,0 +1,40 @@
+# Voltis AI
+
+> Voltis AI helps local businesses get recommended by AI assistants (ChatGPT, Gemini, Perplexity, Claude) when customers ask where to go.
+
+## What we do
+
+Voltis AI provides AI visibility optimization for local businesses. Our core service is the **AI Visibility Fix** ($99 one-time), which includes:
+
+- Full AI visibility audit (how AI assistants currently see your business)
+- Google Business Profile optimization
+- AI recommendation testing and fixes
+- NAP (Name, Address, Phone) consistency across directories
+- Monthly performance reporting
+
+We also offer Review Engine (automated review collection, coming soon) and WhatsApp AI Receptionist (24/7 AI chat, coming soon).
+
+## Who we serve
+
+Local service businesses in the US and Puerto Rico: plumbers, electricians, restaurants, law firms, salons, HVAC, and similar.
+
+## How it works
+
+1. **Free Audit** — We run an AI Visibility Check and provide a score out of 100 with a plain-English report.
+2. **We Fix It** — With approval, we overhaul your Google presence, fix citations, and set up systems.
+3. **You Get Found** — AI assistants start recommending your business to customers asking where to go.
+
+## Key facts
+
+- Website: https://voltis-ai.pages.dev/
+- Contact: voltisautoai@gmail.com
+- Pricing: $99 one-time AI Visibility Fix; no contracts; free audit
+- No guarantees of specific rankings or AI recommendations are made
+
+## FAQ
+
+**Is AI visibility different from SEO?** They work together but are not the same. SEO helps you rank in search results. AI visibility helps AI assistants understand your business well enough to recommend it in a direct answer.
+
+**How long until results?** Most businesses see the foundation fixed within days. AI assistants update at different speeds, so recommendations can improve over the following weeks.
+
+**Do I need a new website?** No. Voltis works with what you already have.
