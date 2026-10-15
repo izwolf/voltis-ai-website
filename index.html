@@ -34,10 +34,11 @@ h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
 
 /* AMBIENT BACKGROUND */
 .ambient{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.5}
+.orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.5;animation:drift 36s ease-in-out infinite alternate}
 .orb1{width:600px;height:600px;background:radial-gradient(circle,rgba(255,212,0,.14),transparent 70%);top:-200px;left:-100px}
-.orb2{width:500px;height:500px;background:radial-gradient(circle,rgba(255,140,0,.1),transparent 70%);bottom:-150px;right:-100px}
-.orb3{width:400px;height:400px;background:radial-gradient(circle,rgba(255,212,0,.08),transparent 70%);top:40%;left:60%}
+.orb2{width:500px;height:500px;background:radial-gradient(circle,rgba(255,140,0,.1),transparent 70%);bottom:-150px;right:-100px;animation-delay:-12s}
+.orb3{width:400px;height:400px;background:radial-gradient(circle,rgba(255,212,0,.08),transparent 70%);top:40%;left:60%;animation-delay:-24s}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(30px,20px) scale(1.05)}}
 .grid-overlay{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;
   background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
   background-size:64px 64px;
@@ -99,7 +100,8 @@ h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
   font-size:.82rem;font-weight:600;letter-spacing:.08em;margin-bottom:28px;
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
 }
-.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 3.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 .hero h1{
   font-size:clamp(2.6rem,6vw,4.4rem);font-weight:700;line-height:1.06;margin-bottom:26px;
   background:linear-gradient(180deg,#fff 30%,rgba(255,255,255,.65));
@@ -116,6 +118,8 @@ h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
 .trust-row span{display:flex;align-items:center;gap:8px}
 .trust-row .check{color:var(--accent);font-weight:700}
 .hero-visual{flex:0 0 380px;text-align:center;position:relative}
+.hero-visual .float-wrap{animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .hero-visual img{
   max-width:380px;width:100%;border-radius:28px;
   box-shadow:0 30px 80px rgba(255,212,0,.18),0 0 0 1px rgba(255,255,255,.08);
@@ -128,9 +132,10 @@ h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
 
 /* MARQUEE */
 .marquee{overflow:hidden;padding:28px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.015)}
-.marquee-track{display:flex;gap:56px;white-space:nowrap;justify-content:center;width:100%}
+.marquee-track{display:flex;gap:56px;white-space:nowrap;animation:scroll 60s linear infinite;width:max-content}
 .marquee-track span{font-family:'Space Grotesk';font-size:1rem;color:var(--muted);letter-spacing:.06em;display:flex;align-items:center;gap:56px}
 .marquee-track .bolt{color:var(--accent)}
+@keyframes scroll{to{transform:translateX(-50%)}}
 
 /* SECTIONS */
 section{padding:110px 0}
@@ -325,7 +330,9 @@ footer p{margin-top:10px}
       </div>
       <div class="hero-visual">
         <div class="glow-ring"></div>
-        <img src="hero-mascot.jpg" alt="Meet Voltis, your AI visibility expert">
+        <div class="float-wrap">
+          <img src="hero-mascot.jpg" alt="Meet Voltis, your AI visibility expert">
+        </div>
       </div>
     </div>
   </div>
@@ -334,7 +341,8 @@ footer p{margin-top:10px}
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
-    <span>CHATGPT <span class="bolt">⚡</span> GEMINI <span class="bolt">⚡</span> PERPLEXITY <span class="bolt">⚡</span> GOOGLE AI <span class="bolt">⚡</span> CLAUDE <span class="bolt">⚡</span> COPILOT</span>
+    <span>CHATGPT <span class="bolt">⚡</span> GEMINI <span class="bolt">⚡</span> PERPLEXITY <span class="bolt">⚡</span> GOOGLE AI <span class="bolt">⚡</span> CLAUDE <span class="bolt">⚡</span> COPILOT <span class="bolt">⚡</span></span>
+    <span>CHATGPT <span class="bolt">⚡</span> GEMINI <span class="bolt">⚡</span> PERPLEXITY <span class="bolt">⚡</span> GOOGLE AI <span class="bolt">⚡</span> CLAUDE <span class="bolt">⚡</span> COPILOT <span class="bolt">⚡</span></span>
   </div>
 </div>
 
