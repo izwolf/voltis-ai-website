@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voltis AI — Spark Your Business Growth with AI</title>
+<meta name="description" content="Voltis AI helps local businesses get found by customers using AI. AI visibility audits, Google Business optimization, review automation, and AI receptionists.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--bg2:#141414;--accent:#ffd400;--accent2:#ff8c00;--text:#f5f5f5;--muted:#a3a3a3;--card:#1a1a1a;--green:#10b981}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Roboto',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+h1,h2,h3,.display{font-family:'Orbitron',sans-serif}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+/* NAV */
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;position:absolute;top:0;left:0;right:0;z-index:10}
+.nav .container{display:flex;justify-content:space-between;align-items:center;width:100%}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+.logo svg{width:40px;height:40px}
+.logo-text{font-family:'Orbitron';font-weight:900;font-size:1.3rem;letter-spacing:2px}
+.logo-text span{color:var(--accent)}
+.nav-cta{padding:10px 28px;font-size:.9rem}
+/* HERO */
+.hero{min-height:90vh;display:flex;align-items:center;background:radial-gradient(ellipse at 50% 0%,#2a2200 0%,var(--bg) 60%);padding:80px 0}
+.hero h1{font-size:clamp(2rem,5vw,3.8rem);font-weight:900;line-height:1.15;margin-bottom:24px}
+.hero h1 .hl{color:var(--accent)}
+.hero p.lead{font-size:1.25rem;color:var(--muted);max-width:640px;margin-bottom:36px}
+.badge{display:inline-block;background:rgba(0,212,255,.1);border:1px solid var(--accent);color:var(--accent);padding:8px 20px;border-radius:50px;font-size:.85rem;font-weight:500;margin-bottom:28px;letter-spacing:.5px}
+.btn{display:inline-block;padding:16px 40px;border-radius:8px;font-weight:700;font-size:1.05rem;text-decoration:none;transition:transform .2s,box-shadow .2s;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,212,255,.3)}
+.btn-ghost{background:transparent;border:2px solid var(--muted);color:var(--text);margin-left:12px}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-cta .btn-ghost{margin-left:0}
+.trust{margin-top:32px;color:var(--muted);font-size:.9rem}
+/* STATS */
+.stats{background:var(--bg2);padding:60px 0;border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;text-align:center}
+.stat-num{font-family:'Orbitron';font-size:2.8rem;font-weight:900;color:var(--accent)}
+.stat-label{color:var(--muted);margin-top:8px}
+/* SECTIONS */
+section{padding:90px 0}
+.section-title{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;text-align:center;margin-bottom:16px}
+.section-sub{text-align:center;color:var(--muted);max-width:680px;margin:0 auto 56px;font-size:1.1rem}
+/* PROBLEM */
+.problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.problem-card{background:var(--card);border-radius:12px;padding:32px;border-left:4px solid #ef4444}
+.problem-card h3{margin-bottom:12px;font-size:1.15rem}
+.problem-card p{color:var(--muted)}
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.service-card{background:var(--card);border-radius:16px;padding:40px 32px;border:1px solid #333333;transition:transform .2s,border-color .2s;position:relative}
+.service-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.service-card.featured{border:2px solid var(--accent)}
+.service-tag{position:absolute;top:-14px;left:32px;background:var(--accent);color:#000;font-size:.75rem;font-weight:700;padding:4px 16px;border-radius:20px;letter-spacing:1px}
+.service-card h3{font-size:1.3rem;margin-bottom:12px}
+.service-card p{color:var(--muted);margin-bottom:20px;min-height:72px}
+.price{font-family:'Orbitron';font-size:1.8rem;font-weight:700;color:var(--accent);margin-bottom:4px}
+.price-sub{color:var(--muted);font-size:.9rem;margin-bottom:24px}
+.service-card ul{list-style:none;margin-bottom:28px}
+.service-card li{padding:8px 0;color:var(--muted);border-bottom:1px solid #333333}
+.service-card li::before{content:"✓ ";color:var(--green);font-weight:700}
+/* HOW */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;counter-reset:step}
+.step{background:var(--card);border-radius:12px;padding:36px 28px;text-align:center;position:relative}
+.step-num{font-family:'Orbitron';font-size:3rem;font-weight:900;color:var(--accent);opacity:.35;margin-bottom:12px}
+.step h3{margin-bottom:12px}
+.step p{color:var(--muted)}
+/* ABOUT */
+.about{background:var(--bg2);border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a}
+.about-content{max-width:720px;margin:0 auto;text-align:center}
+.about-content p{color:var(--muted);margin-bottom:20px;font-size:1.08rem}
+.about-content strong{color:var(--text)}
+/* FAQ */
+.faq-item{background:var(--card);border-radius:10px;margin-bottom:16px;overflow:hidden}
+.faq-q{padding:22px 28px;cursor:pointer;font-weight:500;font-size:1.05rem;display:flex;justify-content:space-between;align-items:center}
+.faq-q:hover{color:var(--accent)}
+.faq-a{padding:0 28px;max-height:0;overflow:hidden;transition:max-height .3s,padding .3s;color:var(--muted)}
+.faq-item.open .faq-a{max-height:300px;padding:0 28px 24px}
+/* CTA */
+.final-cta{background:radial-gradient(ellipse at 50% 100%,#2a2200 0%,var(--bg) 60%);text-align:center;padding:100px 0}
+.final-cta h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:20px}
+.final-cta p{color:var(--muted);max-width:560px;margin:0 auto 36px;font-size:1.15rem}
+/* FOOTER */
+footer{padding:40px 0;border-top:1px solid #2a2a2a;text-align:center;color:var(--muted);font-size:.9rem}
+footer a{color:var(--accent);text-decoration:none}
+@media(max-width:640px){.hero-cta .btn{width:100%;text-align:center;margin-bottom:8px}.btn-ghost{margin-left:0}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="nav"><div class="container">
+<a href="#" class="logo">
+<img src="logo.png" alt="Voltis AI" style="height:52px;width:auto">
+</a>
+<a href="#audit" class="btn btn-primary nav-cta">Free Audit</a>
+</div></div>
+
+<!-- HERO -->
+<div class="hero">
+<div class="container" style="display:flex;align-items:center;gap:48px;flex-wrap:wrap">
+<div style="flex:1;min-width:300px">
+<div class="badge">⚡ VOLTIS AI ⚡</div>
+<h1>High voltage<br>for your <span class="hl">business.</span></h1>
+<p class="lead">45% of your customers now use AI to decide where to spend money. Only 1.2% of local businesses get recommended. We make sure you're one of them — on autopilot.</p>
+<p style="margin-top:16px;color:var(--muted);font-size:.95rem;letter-spacing:1px">AUTOMATE &nbsp;·&nbsp; OPTIMIZE &nbsp;·&nbsp; SCALE &nbsp;—&nbsp; EFFORTLESSLY</p>
+<div class="hero-cta">
+<a href="#audit" class="btn btn-primary">Get My Free AI Visibility Audit</a>
+<a href="#services" class="btn btn-ghost">See Services</a>
+</div>
+<p class="trust">No contracts. No hype. Just systems that work.</p>
+</div>
+<div style="flex:0 0 320px;text-align:center">
+<img src="hero-mascot.jpg" alt="Meet Voltis, your AI visibility expert" style="max-width:320px;width:100%;border-radius:20px;box-shadow:0 20px 60px rgba(255,212,0,.15)">
+</div>
+</div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+<div class="container">
+<div class="stats-grid">
+<div><div class="stat-num">45%</div><div class="stat-label">of consumers use AI for local recommendations</div></div>
+<div><div class="stat-num">1.2%</div><div class="stat-label">of businesses get recommended by ChatGPT</div></div>
+<div><div class="stat-num">28.5%</div><div class="stat-label">of AI citations come from Google Business</div></div>
+<div><div class="stat-num">24/7</div><div class="stat-label">AI works while you sleep</div></div>
+</div>
+</div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem">
+<div class="container">
+<h2 class="section-title">Your customers changed. Did you?</h2>
+<p class="section-sub">People don't just Google anymore. They ask ChatGPT, Gemini, and Perplexity. If AI can't find you, those customers go to your competitor.</p>
+<div class="problem-grid">
+<div class="problem-card"><h3>Your Google listing is incomplete</h3><p>Wrong hours, no photos, unclaimed profile. AI reads this as "not a real business" and skips you.</p></div>
+<div class="problem-card"><h3>You have 12 reviews, they have 200</h3><p>AI trusts businesses with more reviews. Every day without a review system, the gap widens.</p></div>
+<div class="problem-card"><h3>Your info doesn't match anywhere</h3><p>Different phone on Facebook, old address on Yelp. When AI sees conflicts, it recommends someone else.</p></div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background:var(--bg2)">
+<div class="container">
+<h2 class="section-title">Done-for-you AI systems</h2>
+<p class="section-sub">We build it. We run it. You get the customers. Simple.</p>
+<div class="services-grid">
+
+<div class="service-card featured">
+<div class="service-tag">MOST POPULAR</div>
+<h3>AI Visibility Fix</h3>
+<p>Get recommended by ChatGPT, Gemini, and Google AI. Complete Google Business overhaul, AI-readable website check, citation cleanup.</p>
+<div class="price">$99</div><div class="price-sub">one-time + $149/mo maintenance</div>
+<ul><li>Full Google Business Profile optimization</li><li>AI recommendation testing &amp; fixes</li><li>NAP consistency across directories</li><li>Monthly performance report</li></ul>
+<a href="https://buy.stripe.com/6oUdR8fwxcZxd6haVB2Ry03" class="btn btn-primary" style="width:100%;text-align:center">Get the $99 Fix</a>
+</div>
+
+<div class="service-card">
+<h3>Review Engine</h3>
+<p>Automated review requests after every job. More reviews, better ratings, AI-drafted responses for your approval.</p>
+<div class="price">$249</div><div class="price-sub">per month, $299 setup</div>
+<ul><li>Automated review request system</li><li>Review monitoring &amp; alerts</li><li>AI-drafted owner responses</li><li>Monthly review growth report</li></ul>
+<a href="#audit" class="btn btn-ghost" style="width:100%;text-align:center;margin:0">Learn More</a>
+</div>
+
+<div class="service-card">
+<h3>WhatsApp AI Receptionist</h3>
+<p>AI answers your WhatsApp 24/7. FAQs, bookings, lead qualification. Never miss a customer again.</p>
+<div class="price">$299</div><div class="price-sub">per month, $499 setup</div>
+<ul><li>24/7 AI chat on your WhatsApp</li><li>Custom trained on your business</li><li>Booking &amp; lead qualification</li><li>Human handoff when needed</li></ul>
+<a href="#audit" class="btn btn-ghost" style="width:100%;text-align:center;margin:0">Learn More</a>
+</div>
+
+</div>
+<p style="text-align:center;color:var(--muted);margin-top:32px">Need something custom? <a href="#audit" style="color:var(--accent)">Let's talk.</a></p>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+<div class="container">
+<h2 class="section-title">How it works</h2>
+<p class="section-sub">Three steps. You don't lift a finger after step one.</p>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><h3>Free Audit</h3><p>We run our AI Visibility Check on your business. You get a score out of 100 and a plain-English report of what's wrong.</p></div>
+<div class="step"><div class="step-num">2</div><h3>We Fix It</h3><p>You approve the plan. We overhaul your Google presence, fix your citations, set up your systems. Days, not months.</p></div>
+<div class="step"><div class="step-num">3</div><h3>You Get Found</h3><p>AI starts recommending you. Reviews flow in. Customers call. We keep it optimized month after month.</p></div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+<div class="container">
+<div class="about-content">
+<h2 class="section-title">Why Voltis AI?</h2>
+<p>We don't sell software. We don't sell courses. We <strong>build AI systems inside your business</strong> and keep them running.</p>
+<p>Every system we sell, we built for a real business first. Every automation is battle-tested before it touches your operation. <strong>No theory. No hype. Just current flowing to your bottom line.</strong></p>
+<p>Automate. Optimize. Scale. Effortlessly.</p>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+<div class="container" style="max-width:760px">
+<h2 class="section-title">Questions</h2>
+<p class="section-sub">Straight answers.</p>
+
+<div class="faq-item"><div class="faq-q">How is this different from regular SEO? <span>+</span></div><div class="faq-a">SEO gets you ranked on Google. We get you recommended by AI — ChatGPT, Gemini, Perplexity. It's a different game with different rules, and almost nobody is playing it yet for local businesses.</div></div>
+
+<div class="faq-item"><div class="faq-q">How long until I see results? <span>+</span></div><div class="faq-a">Google Business fixes show impact in 2-4 weeks. AI recommendation improvements build over 60-90 days as citations and reviews accumulate. We report monthly so you always know where you stand.</div></div>
+
+<div class="faq-item"><div class="faq-q">Do I need a website? <span>+</span></div><div class="faq-a">Not to start. We optimize what you have. But businesses with websites get recommended more often — we can build you one if you need it.</div></div>
+
+<div class="faq-item"><div class="faq-q">What if it doesn't work? <span>+</span></div><div class="faq-a">The audit is free, so you risk nothing to see your score. If you move forward and don't see measurable improvement in 90 days, we work for free until you do.</div></div>
+
+<div class="faq-item"><div class="faq-q">Why are your prices lower than agencies? <span>+</span></div><div class="faq-a">Agencies charge $300-700/month because they have offices and account managers. We run lean with AI doing the heavy lifting. Lower costs, same results, better price.</div></div>
+
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta" id="audit">
+<div class="container">
+<div style="font-size:3rem;margin-bottom:16px">⚡</div>
+<h2>Find out your AI Visibility Score</h2>
+<p>Free audit. Takes us 15 minutes. Shows you exactly where you stand and what's costing you customers. No obligation.</p>
+<a href="mailto:voltisautoai@gmail.com?subject=Free AI Visibility Audit Request" class="btn btn-primary">Request My Free Audit</a>
+<p style="margin-top:20px;font-size:.9rem">Or email us directly: voltisautoai@gmail.com</p>
+</div>
+</div>
+
+<footer>
+<div class="container">
+<p>⚡ VOLTIS AI — High Voltage for Your Business</p>
+<p style="margin-top:12px">Part of the <a href="https://needleandprintco.pages.dev">Needle &amp; Print Co.</a> family</p>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(q=>{
+q.addEventListener('click',()=>{
+const item=q.parentElement;
+const wasOpen=item.classList.contains('open');
+document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+if(!wasOpen)item.classList.add('open');
+});
+});
+</script>
+</body>
+</html>
