@@ -23,7 +23,7 @@ export async function onRequestPost(context) {
 
     const leadType = type === 'waitlist' ? `Waitlist: ${service || 'Unknown'}` : 'Free Audit';
 
-    const properties: Record<string, any> = {
+    const properties = {
       'Name': { title: [{ text: { content: name } }] },
       'Business': { rich_text: [{ text: { content: business } }] },
       'Email': { email: email },
