@@ -637,11 +637,19 @@ async function submitAudit(e) {
   btn.textContent = 'Sending...';
   btn.disabled = true;
   const data = new FormData(form);
+  const payload = {
+    name: data.get('name'),
+    business: data.get('business'),
+    email: data.get('email'),
+    phone: data.get('phone') || '',
+    website: data.get('website') || '',
+    challenge: data.get('challenge') || 'Not sure where to start'
+  };
   try {
-    const res = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
+    const res = await fetch('/api/audit', {
       method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     });
     if (res.ok) {
       document.getElementById('auditForm').style.display = 'none';
@@ -651,11 +659,8 @@ async function submitAudit(e) {
     }
   } catch (err) {
     // Fallback: open email with pre-filled details
-    const name = data.get('name'), biz = data.get('business'), email = data.get('email');
-    const phone = data.get('phone') || 'Not provided', site = data.get('website') || 'Not provided';
-    const challenge = data.get('challenge');
-    const subject = encodeURIComponent('Free AI Visibility Audit Request - ' + biz);
-    const body = encodeURIComponent('Name: ' + name + '\nBusiness: ' + biz + '\nEmail: ' + email + '\nPhone: ' + phone + '\nWebsite: ' + site + '\nChallenge: ' + challenge);
+    const subject = encodeURIComponent('Free AI Visibility Audit Request - ' + payload.business);
+    const body = encodeURIComponent('Name: ' + payload.name + '\nBusiness: ' + payload.business + '\nEmail: ' + payload.email + '\nPhone: ' + (payload.phone || 'Not provided') + '\nWebsite: ' + (payload.website || 'Not provided') + '\nChallenge: ' + payload.challenge);
     window.location.href = 'mailto:voltisautoai@gmail.com?subject=' + subject + '&body=' + body;
     document.getElementById('auditForm').style.display = 'none';
     document.getElementById('auditSuccess').style.display = 'block';
