@@ -11,11 +11,11 @@ export async function onRequestPost(context) {
       });
     }
 
-    const NOTION_TOKEN = context.env.NOTION_API_KEY;
-    const DATABASE_ID = context.env.NOTION_DATABASE_ID;
+    const NOTION_TOKEN = (context.env.NOTION_API_KEY || '').trim();
+    const DATABASE_ID = (context.env.NOTION_DATABASE_ID || '').trim();
 
     if (!NOTION_TOKEN || !DATABASE_ID) {
-      return new Response(JSON.stringify({ error: 'Notion not configured', hasToken: !!NOTION_TOKEN, hasDb: !!DATABASE_ID, tokenLen: NOTION_TOKEN ? NOTION_TOKEN.length : 0, dbVal: DATABASE_ID || 'missing' }), {
+      return new Response(JSON.stringify({ error: 'Notion not configured' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -51,7 +51,7 @@ export async function onRequestPost(context) {
     if (!notionRes.ok) {
       const errText = await notionRes.text();
       console.error('Notion API error:', errText);
-      return new Response(JSON.stringify({ error: 'Failed to save lead', notionStatus: notionRes.status, notionError: errText.substring(0, 500) }), {
+      return new Response(JSON.stringify({ error: 'Failed to save lead' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
