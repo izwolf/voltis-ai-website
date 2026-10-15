@@ -15,7 +15,7 @@ export async function onRequestPost(context) {
     const DATABASE_ID = context.env.NOTION_DATABASE_ID;
 
     if (!NOTION_TOKEN || !DATABASE_ID) {
-      return new Response(JSON.stringify({ error: 'Notion not configured' }), {
+      return new Response(JSON.stringify({ error: 'Notion not configured', hasToken: !!NOTION_TOKEN, hasDb: !!DATABASE_ID, tokenLen: NOTION_TOKEN ? NOTION_TOKEN.length : 0, dbVal: DATABASE_ID || 'missing' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -51,7 +51,7 @@ export async function onRequestPost(context) {
     if (!notionRes.ok) {
       const errText = await notionRes.text();
       console.error('Notion API error:', errText);
-      return new Response(JSON.stringify({ error: 'Failed to save lead' }), {
+      return new Response(JSON.stringify({ error: 'Failed to save lead', notionStatus: notionRes.status, notionError: errText.substring(0, 500) }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
