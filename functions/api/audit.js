@@ -51,7 +51,7 @@ export async function onRequestPost(context) {
     if (!notionRes.ok) {
       const errText = await notionRes.text();
       console.error('Notion API error:', errText);
-      return new Response(JSON.stringify({ error: 'Failed to save lead', detail: errText, status: notionRes.status }), {
+      return new Response(JSON.stringify({ error: 'Failed to save lead' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
